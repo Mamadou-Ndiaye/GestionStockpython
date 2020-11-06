@@ -1,0 +1,43 @@
+  {% extends  "base.html" %}
+{% block contenu %}
+ <div class="row mt-2">
+     <div class="col-md-6 m-auto">
+       <div class="card card-body">
+         <form method="post">
+             {% csrf_token%}
+             <div class="form-group">
+                <label for="designation">Designation</label>
+                <input type="text" class="form-control"  name="designation" value="{{produit.designation}}" aria-describedby="emailHelp">
+              </div>
+             <div class="form-group">
+                <label for="designation">Description</label>
+                <input type="text" class="form-control"  name="description" value="{{produit.description}}" aria-describedby="emailHelp">
+              </div>
+             <div class="form-group">
+                <label for="datePerempt">Date peremtion</label>
+                <input type="date" class="form-control"  name="datePerempt" value="{{produit.datePerempt}}" aria-describedby="emailHelp">
+              </div>
+             <div class="form-group">
+                <label for="prixU">Prix Unitaire</label>
+                <input type="number" class="form-control"  name="prixU" value="{{produit.prixU}}" aria-describedby="emailHelp">
+              </div>
+             <div class="form-group">
+                <label for="quantite">Quantite</label>
+                <input type="number" class="form-control"  name="quantite" value="{{produit.quantite}}" aria-describedby="emailHelp">
+              </div>
+
+             <div class="form-group">
+                <label for="quantite">Photo</label>
+                <input type="number" class="form-control"  name="photo" value="{{produit.photo}}" aria-describedby="emailHelp">
+             </div>
+
+
+             <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+         </form>
+       </div>
+     </div>
+ </div>
+{% endblock%}
+
+

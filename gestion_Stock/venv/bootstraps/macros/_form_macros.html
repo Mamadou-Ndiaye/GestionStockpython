@@ -1,0 +1,74 @@
+{# Based on: https://gist.githubusercontent.com/bearz/7394681/raw/9a0c61f0216a322715c709d4fd9c9edd496e25d5/macros.html #}
+
+{% macro form_card(form_html, title=None, description=None, card_footer=None) %}
+<div class="card" style="max-width: 100%">
+  <div class="card-body">
+    <h4 class="card-title">{{title}}</h4>
+    <p class="card-text">{{description}}</p>
+    {{form_html | safe}}
+  </div>
+  <div class="card-footer text-muted">
+    {{card_footer}}
+  </div>
+</div>
+{% endmacro %}
+
+
+{% macro form_printer(form, action_url, button_text='Submit') %}
+<form action='{{action_url}}' method='POST' class='{{class_string}} or ""'>
+    
+    {{ simple_fields(form)}}
+
+<button class="btn btn-success button" style="padding: 15px;">
+{{button_text}}
+</button>
+
+</form>
+{% endmacro %}
+
+
+{% macro simple_fields(form) %}
+{# Just print hte form groups #}
+    {% for field in form %}
+        
+        {{ render_field(field) }}
+        
+    {% endfor %}
+
+{% endmacro %}
+
+
+{% macro render_field(field) %}
+
+    {% if field.errors %}
+        <div class="form-group has-danger">
+    {% else %}
+        <div class="form-group">
+    {% endif %}
+
+    {% if field.type == 'HiddenField' or field.type == 'CSRFTokenField' %}
+    	{% set showlabel = False %}
+    {% else %}
+    	{% set showlabel = True %}
+    {% endif %}
+
+    {% if showlabel == True %}
+    	
+    {{field.label}}
+    {% endif %}
+
+    {{field(class='form-control')}}
+
+    <div class="form-control-feedback small form-text">
+        {% for err in field.errors %}
+            <span>{{err}}</span>            
+        {% endfor %}
+
+        {% if field.description %}
+            <small id="{{field.id}}Help" class="form-text text-muted">{{field.description | safe}}</small>
+        {% endif %}
+    </div>
+
+    </div>
+
+{% endmacro %}

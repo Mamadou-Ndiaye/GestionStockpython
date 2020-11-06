@@ -1,0 +1,39 @@
+{% macro navbar(title, href_title_duples, user_obj) %}
+
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">{{title}}</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+    {% for (title, href) in href_title_duples %}
+
+      <li class="nav-item">
+      {% if request.path == href %}
+        <a class="btn btn-success" style="margin-right: 15px" href="{{href}}">{{title}}</a>
+
+      {% else %}
+        <a class="btn btn-outline-success" style="margin-right: 15px" href="{{href}}">{{title}}</a>
+      {% endif %}
+
+      </li>
+
+    {% endfor %}
+
+
+    </ul>
+    <ul class="navbar-nav">
+
+      <li class="nav-item pull-md-right">
+        <a class="btn btn-outline-info" href="/logout">Logout</a>
+      </li>
+      </ul>
+  </div>
+</nav>
+
+
+{% endmacro %}

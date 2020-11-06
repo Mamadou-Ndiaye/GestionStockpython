@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">My Apps Gestion_Stock</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <!-- on gere dynamiquement les urls ici acceuil est declare dans url name="acceuil" -->
+        <a class="nav-link" href="{% url 'acceuil' %} ">Acceuil </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Categorie</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'produit' %}">Produit</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Commande</a>
+      </li>
+
+      </li>
+        <li class="nav-item">
+          {% if request.user.is_authenticated %}
+          <a class="nav-link"   href="{% url 'logout' %}">Deconnexion</a>
+          {% else %}
+          <a class="nav-link"   href="{% url 'login' %}">Connexion</a>
+          {% endif %}
+      </li>
+    </ul>
+
+  </div>
+</nav>

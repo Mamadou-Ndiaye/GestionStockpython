@@ -1,0 +1,73 @@
+ {% extends  "base.html" %}
+{% block contenu %}
+  <div class="mt-2">
+        <a class="btn btn-info" href="{% url 'nouveau_produit' %}">Ajouter produit</a>
+  </div>
+
+ <div class="row mt-2 mb-2 col-12  ">
+     <div class="col-md m-auto">
+         <div class="card card-body">
+               <div class="panel-heading"><h3  class="display-2">Produits</h3></div>
+             {% if produits %}
+            <table class=" table table-striped">
+                <thead class="thead-dark">
+                   <tr>
+                      <th scope="col">Designation</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">DatePeremption</th>
+                      <th scope="col">PrixU</th>
+                        <th scope="col">Quantite</th>
+                   </tr>
+                </thead>
+               {% for produit in produits %}
+                <a href=" {% url 'details' produit.id %}">
+                <tr>
+                    <!-- on gere dynamiquement les urls ici details est declare dans url name="details"
+                     ici on precise l'argument produit.id qui represente l'id du produit -->
+
+                    <td>
+                          <a href=" {% url 'details' produit.id %}">
+                              <!--filtre | default_if_none : "non renseigne"  -->
+                             {{ produit.designation}}
+                          </a>
+                    </td>
+                    <td>
+                          <a href=" {% url 'details' produit.id %}">
+                        {{ produit.description }}
+                          </a>
+                    </td>
+                    <td>
+                          <a href=" {% url 'details' produit.id %}">
+                        {{ produit.datePerempt }}
+                          </a>
+                    </td>
+                    <td>
+                          <a href=" {% url 'details' produit.id %}">
+                        {{produit.prixU}}
+                          </a>
+                    </td>
+                    <td>
+                          <a href=" {% url 'details' produit.id %}">
+                         {{produit.quantite}}
+                          </a>
+                    </td>
+
+
+                </tr>
+                </a>
+                    {% endfor%}
+            </table>
+
+         {% else %}
+             <h3>Produit vide</h3>
+         {% endif%}
+         </div>
+
+     </div>
+
+
+ </div>
+{% endblock%}
+
+
+

@@ -1,0 +1,46 @@
+  {% extends  "base.html" %}
+  {% load static %}
+{% block contenu %}
+  <div class="mt-2">
+        <a class="btn btn-info" href="{% url 'nouveau_produit' %}">Ajouter produit</a>
+   </div>
+
+ <div class="row mt-2 mb-2 col-12  ">
+     <div class="col-md-12 m-auto">
+         <div class="card card-body col-12 ">
+               <div class="panel-heading"><h3  class="display-2">Produits</h3></div>
+             <div class="row " >
+             {% if produits %}
+                 {% for produit in produits %}
+                   {% if  produit.photo  %}
+
+                        <div class="col-md-4">
+                          <a href=" {% url 'details' produit.id %}">
+                              <!--filtre | default_if_none : "non renseigne"  -->
+                            <img src="{{  produit.photo.url }}">
+                               {{produit.prixU}}
+                              <br/> <br/>  <br/>
+                          </a>
+                        </div>
+
+                      {% else %}
+                        <img src="{% static 'pc1.png' %}">
+
+                   {% endif %}
+
+                  {% endfor%}
+             {% else %}
+             <h3>Produit vide</h3>
+         {% endif%}
+             </div>
+         </div>
+
+     </div>
+
+
+ </div>
+{% endblock%}
+
+
+
+
