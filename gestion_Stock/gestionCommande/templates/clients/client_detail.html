@@ -1,0 +1,35 @@
+    {% extends  "base.html" %}
+{% block contenu %}
+
+ <div class="row mt-2">
+     <div class="col-md-9 m-auto">
+
+         <div class="row">
+         <div class="card card-body ">
+              <div class="panel-heading"><h3  class="text-center">Detail client</h3></div>
+
+             <ul class="list-group list-group-flush">
+              <li class="list-group-item">Nom : {{client.nom}}</li>
+              <li class="list-group-item">Prenom : {{client.prenom}}</li>
+              <li class="list-group-item">Email : {{client.email}}</li>
+              <li class="list-group-item">Telephone : {{client.telephone}}</li>
+              <li class="list-group-item">Adresse : {{client.adresse}}</li>
+            </ul>
+
+
+<!--             <div class="mt-2">-->
+<!--                <button class="btn btn-info"> <a  href=" {% url 'edit_client' client.id %}">Modifier</a></button>-->
+<!--                  <button class="btn btn-danger"> <a  href=" {% url 'delete_client' client.id %}">Supprimer</a></button>-->
+<!--             </div>-->
+
+         </div>
+
+         </div>
+
+
+     </div>
+ </div>
+{% endblock%}
+
+
+

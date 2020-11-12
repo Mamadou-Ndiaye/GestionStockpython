@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">My Apps Gestion_Stock</a>
+<nav class="navbar navbar-expand-lg  navbar-dark bg-info ">
+  <a class="navbar-brand" href="{% url 'acceuil' %} ">My Apps Gestion_Stock</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,24 +11,38 @@
         <a class="nav-link" href="{% url 'acceuil' %} ">Acceuil </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Categorie</a>
+        <a class="nav-link" href="#">Fournisseur</a>
       </li>
         <li class="nav-item">
         <a class="nav-link" href="{% url 'produit' %}">Produit</a>
       </li>
+       </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'list_client' %}">Client</a>
+      </li>
+
         <li class="nav-item">
         <a class="nav-link" href="#">Commande</a>
       </li>
 
+
+
+      <form class="form-inline my-2 my-lg-0"   action="{% url 'search_produit' %}" method="get">
+      <input class="form-control mr-sm-2"  name="query" value="{{ request.GET.query }}" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><span class="glyphicon glyphicon-search"></span>Search</button>
+    </form>
+
       </li>
-        <li class="nav-item">
+        <li class="nav-item   pull-right  ">
           {% if request.user.is_authenticated %}
-          <a class="nav-link"   href="{% url 'logout' %}">Deconnexion</a>
+          <a class="nav-link  pull-right"   href="{% url 'logout' %}">Deconnexion</a>
           {% else %}
-          <a class="nav-link"   href="{% url 'login' %}">Connexion</a>
+          <a class="nav-link  pull-right"   href="{% url 'login' %}">Connexion</a>
           {% endif %}
       </li>
     </ul>
+
+
 
   </div>
 </nav>

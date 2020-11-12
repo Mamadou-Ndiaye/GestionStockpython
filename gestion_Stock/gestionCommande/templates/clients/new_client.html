@@ -1,0 +1,26 @@
+
+
+
+{% extends  "base.html" %}
+
+{% block contenu %}
+
+ <div class="row col-md-12  align-self-center">
+     <div class="col-md-6 offset-md-3 mt-4 col-auto align-self-center">
+         <form method="post">
+             <!--Dans un formulaire django il faut importer le middewaire -->
+             {% csrf_token %}
+               <div class="form-group mt-2">
+                    {{ form.as_p}}
+               </div>
+             <button type="submit" class="btn btn-primary">Ajouter Client</button>
+         </form>
+
+<!--         <p class="mt-2">Vous avez un compte ?<a href="{% url 'login' %}">Se connecter</a></p>-->
+
+     </div>
+ </div>
+{% endblock%}
+
+
+

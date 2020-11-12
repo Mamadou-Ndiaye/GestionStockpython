@@ -16,7 +16,8 @@ def login_view(request):
         user= authenticate(username=username,password=password)
         if user is not None:
              login(request,user)
-             return  redirect("/produit")
+             #on se reirige vers la page d'acceuil
+             return  redirect("/")
     return render(request, "utilisateurs/login.html", {"form":form})
 
 # methode creation utilisateur

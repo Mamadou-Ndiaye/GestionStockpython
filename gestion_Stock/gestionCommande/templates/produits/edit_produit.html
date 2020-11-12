@@ -3,7 +3,7 @@
  <div class="row mt-2">
      <div class="col-md-6 m-auto">
        <div class="card card-body">
-         <form method="post">
+         <form method="post" enctype="multipart/form-data">
              {% csrf_token%}
              <div class="form-group">
                 <label for="designation">Designation</label>
@@ -27,8 +27,8 @@
               </div>
 
              <div class="form-group">
-                <label for="quantite">Photo</label>
-                <input type="number" class="form-control"  name="photo" value="{{produit.photo}}" aria-describedby="emailHelp">
+                <label for="photo">Photo</label>
+                <input type="file" class="form-control"  upload_to="images/%Y/%m/%d/"   name="photo" value="{{produit.photo.url}}" aria-describedby="emailHelp">
              </div>
 
 

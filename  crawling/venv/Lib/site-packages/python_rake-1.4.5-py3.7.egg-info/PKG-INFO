@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: python-rake
+Version: 1.4.5
+Summary: A python module implementing the Rapid Automatic Keyword Extraction algorithm.
+Home-page: https://github.com/fabianvf/python-rake
+Author: Tomás Pinho <me@tomaspinho.com>, Fabian von Feilitzsch <fabian@fabianism.us>
+Author-email: fabian@fabianism.us
+License: MIT
+Description: UNKNOWN
+Keywords: text mining data mining natural language processing
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7

@@ -1,0 +1,75 @@
+   {% extends  "base.html" %}
+{% block contenu %}
+
+ <div class="row mt-2">
+     <div class="col-md-9 m-auto">
+
+         <div class="row">
+         <div class="card card-body ">
+              <div class="panel-heading"><h3  class="text-center">Listes Des Clients</h3></div>
+
+                 <table class=" table table-striped">
+                <thead class="thead-dark">
+                   <tr>
+                      <th scope="col">Nom</th>
+                      <th scope="col">Prenom</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Telephone</th>
+                        <th scope="col">Adresses</th>
+                   </tr>
+                </thead>
+               {% for client in clients %}
+                <a href=" {% url 'details_client' client.id %}">
+                <tr>
+                    <!-- on gere dynamiquement les urls ici details est declare dans url name="details"
+                     ici on precise l'argument client.id qui represente l'id du client -->
+
+                    <td>
+                          <a href=" {% url 'details_client' client.id %}">
+                              <!--filtre | default_if_none : "non renseigne"  -->
+                             {{ client.nom}}
+                          </a>
+                    </td>
+                    <td>
+                          <a href=" {% url 'details_client' client.id %}">
+                        {{ client.prenom }}
+                          </a>
+                    </td>
+                    <td>
+                          <a href=" {% url 'details_client' client.id %}">
+                        {{ client.email }}
+                          </a>
+                    </td>
+                    <td>
+                          <a href=" {% url 'details_client' client.id %}">
+                        {{client.telephone}}
+                          </a>
+                    </td>
+                    <td>
+                          <a href=" {% url 'details_client' client.id %}">
+                         {{client.adresse}}
+                          </a>
+                    </td>
+
+
+                </tr>
+                </a>
+                    {% endfor%}
+            </table>
+
+
+
+         </div>
+
+         </div>
+
+
+     </div>
+ </div>
+{% endblock%}
+
+
+
+
+
+

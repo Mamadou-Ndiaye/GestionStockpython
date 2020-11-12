@@ -31,7 +31,22 @@
                 <input type="file" class="form-control"  upload_to='images/%Y/%m/%d/' name="photo" aria-describedby="emailHelp">
               </div>
 
-             <button type="submit" class="btn btn-primary">Enregistrer</button>
+             <div class='form-group selectpicker multiple data-selected-text-format '>
+                  <label for="categories">Categorie</label>
+             </br>
+                  <select name="categorie" required id="id_categorie" class="form-control >
+                      {% for categorie in categories %}
+
+                       <option value="{{categorie.designation}}" >{{categorie.designation}}</option>
+                       {% endfor %}
+
+
+
+                  </select>
+
+              </div>
+
+             <button type='submit' class='btn btn-primary'>Enregistrer</button>
 
          </form>
        </div>

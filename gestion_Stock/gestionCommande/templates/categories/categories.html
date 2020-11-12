@@ -1,0 +1,70 @@
+  {% extends  "base.html" %}
+   <style>
+        .clickable{
+              cursor: pointer;
+            }
+    </style>
+  {% load static %}
+{% block contenu %}
+
+  <div class="row">
+      <div class="mt-2 col-md-3">
+           {% if  categories %}
+              <ul class="list-group"  >
+                  {% for  categorie in   categories %}
+
+                  <a class="btn btn-info" href=" {% url 'typecategories' categorie.id %}">
+                    <button class="btn btn-info">
+                      <li   class="list-group-item clickable btn btn-info">
+                            {{categorie.designation}}
+                      </li>
+                    </button>
+                  </a>
+
+                  {% endfor%}
+             </ul>
+        {% endif %}
+     </div>
+
+ <div class="row mt-2 mb-2 col-9  ">
+     <div class="col-md-12 m-auto">
+         <div class="card card-body col-12 ">
+               <div class="panel-heading"><h3  class="display-2">Produits</h3></div>
+               <div class="mt-2 center">
+                    <a class="btn btn-info pull-right" href="{% url 'nouveau_produit' %}">Ajouter produit</a>
+               </div>
+             <div class="row " >
+             {% if produits %}
+                 {% for produit in produits %}
+                   {% if  produit.photo  %}
+
+                        <div class="col-md-4">
+                          <a href=" {% url 'details' produit.id %}">
+                              <!--filtre | default_if_none : "non renseigne"  -->
+                            <img src="{{  produit.photo.url }}"  width="350" height="400">
+                               {{produit.prixU}}
+                              <br/> <br/>  <br/>
+                          </a>
+                        </div>
+
+                      {% else %}
+                        <img src="{% static 'pc1.png' %}">
+
+                   {% endif %}
+
+                  {% endfor%}
+             {% else %}
+             <h3>Produit vide</h3>
+         {% endif%}
+             </div>
+         </div>
+
+     </div>
+</div>
+
+ </div>
+{% endblock%}
+
+
+
+
