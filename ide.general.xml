@@ -1,0 +1,9 @@
+<application>
+  <component name="StatusBar">
+    <option name="widgets">
+      <map>
+        <entry key="com.intellij.psi.codeStyle.statusbar.CodeStyleStatusBarWidget" value="false" />
+      </map>
+    </option>
+  </component>
+</application>
