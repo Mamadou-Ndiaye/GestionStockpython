@@ -198,3 +198,23 @@ def detail_clients(request,id):
     print(context)
     print('voici le nom du client',client.nom)
     return render(request, "clients/client_detail.html",context)
+
+def  delete_client(request,id):
+    client = get_object_or_404(Client,id=id)
+    if request.method == "POST" :
+        client.delete()
+        return  redirect("/")
+    return render(request, "clients/delete_client.html", {"client": client})
+
+def edit_client(request, id):
+    client = get_object_or_404(Client, id=id)
+    clientform = ClientForm(request.POST)
+    if request.method == "POST":
+            clientform = ClientForm(request.POST)
+
+            if clientform.is_valid():
+                clientform.save()
+                return redirect("/client")
+            else:
+                clientform = ClientForm()
+    return render(request, 'clients/edit_client.html', {"form": clientform})

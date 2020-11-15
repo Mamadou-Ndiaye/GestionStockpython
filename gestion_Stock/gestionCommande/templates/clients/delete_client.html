@@ -1,0 +1,22 @@
+  {% extends  "base.html" %}
+{% block contenu %}
+ <div class="row mt-2">
+     <div class="col-md-6 m-auto">
+       <div class="card card-body">
+         <form method="post">
+             {% csrf_token%}
+              <div class="alert alert-danger" role="alert">
+                   Etes-vous sur de supprimer {{client}} ?
+              </div>
+              <div class="mt-2">
+                 <button type="submit" class="btn btn-info"><a href="{% url 'acceuil' %}">NON </a></button>
+                 <button type="submit" class="btn btn-danger"><span> OUI</span> </button>
+              </div>
+
+         </form>
+       </div>
+     </div>
+ </div>
+{% endblock%}
+
+

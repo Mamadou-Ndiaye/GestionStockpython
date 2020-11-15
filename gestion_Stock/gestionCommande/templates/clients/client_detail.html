@@ -16,11 +16,12 @@
               <li class="list-group-item">Adresse : {{client.adresse}}</li>
             </ul>
 
+             <div class="mt-2">
+                  <button class="btn btn-info"> <a  href=" {% url 'edit_client' client.id %}">Modifier</a></button>
+                 <button class="btn btn-danger"> <a  href=" {% url 'delete_client' client.id %}">Supprimer</a></button>
+             </div>
 
-<!--             <div class="mt-2">-->
-<!--                <button class="btn btn-info"> <a  href=" {% url 'edit_client' client.id %}">Modifier</a></button>-->
-<!--                  <button class="btn btn-danger"> <a  href=" {% url 'delete_client' client.id %}">Supprimer</a></button>-->
-<!--             </div>-->
+
 
          </div>
 

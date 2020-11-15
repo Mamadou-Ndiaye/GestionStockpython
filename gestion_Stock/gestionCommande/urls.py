@@ -20,6 +20,8 @@ urlpatterns = [
     path("client/new", new_client, name='client'),
     path("client/",client,name='list_client'),
     path("client/<int:id>",detail_clients,name='details_client'),
+    path("client/delete_client/<int:id>", delete_client, name='delete_client'),
+    path("produit/edit_client/<int:id>",edit_client,name='edit_client'),
 
 
 ]
