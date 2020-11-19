@@ -57,11 +57,14 @@
                 </a>
                     {% endfor%}
             </table>
-
+             <!-- affichage par pagination j'utilise pagination.html pour l'affichage -->
+          {% include  "partiel/pagination.html" %}
          {% else %}
              <h3>Produit vide</h3>
          {% endif%}
          </div>
+
+
 
      </div>
 

@@ -1,3 +1,4 @@
+{% load static %}
 <nav class="navbar navbar-expand-lg  navbar-dark bg-info ">
   <a class="navbar-brand" href="{% url 'acceuil' %} ">My Apps Gestion_Stock</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,15 +32,22 @@
       <input class="form-control mr-sm-2"  name="query" value="{{ request.GET.query }}" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><span class="glyphicon glyphicon-search"></span>Search</button>
     </form>
+       <a href="#" style="position:relative;left:90px;" >
+	    		<img  id="cart-icon" src="{% static 'images/cart.png' %}">
+	    	</a>
+      <p id="cart-total" style="position:relative;left:90px;">0</p>
 
       </li>
-        <li class="nav-item   pull-right  ">
+        <li class="nav-item   pull-right   " style="position:relative;left:100px;">
           {% if request.user.is_authenticated %}
-          <a class="nav-link  pull-right"   href="{% url 'logout' %}">Deconnexion</a>
+          <a class="nav-link  btn btn-warning"   href="{% url 'logout' %}">Deconnexion</a>
           {% else %}
-          <a class="nav-link  pull-right"   href="{% url 'login' %}">Connexion</a>
+          <a class="nav-link  btn btn-warning"   href="{% url 'login' %}">Connexion</a>
           {% endif %}
+
       </li>
+
+
     </ul>
 
 

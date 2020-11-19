@@ -3,6 +3,7 @@ import os
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 # Create your views here.
 from django.utils._os import safe_join
@@ -37,8 +38,21 @@ def list_produits(request):
         # Pour les filtres ici seul l'utilisateur ne voit que ces donnees dons si on voudrait l'appliquer on
         #  remplace all par filter et on passe l'objet auteur com auteur=user
     produits=Produit.objects.all()
-    context = {"produits": produits}
-    #print(context)
+    # Gestion de la pagination
+    paginator = Paginator(produits, 8)  # Show 8 produits par page.
+    page = request.GET.get('page')
+    try:
+        produits= paginator.page(page)
+        context = {"produits": produits}
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        produits= paginator.page(1)
+        context = {"produits": produits}
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        produits = paginator.page(paginator.num_pages)
+        context = {"produits": produits}
+
     return render(request, "produits/produit.html",context)
 
 
@@ -94,6 +108,7 @@ def search(request):
 @login_required(login_url="/login/")
 def  new_product(request):
     categories= Categorie.objects.all()
+    produits= Produit.objects.all()
     if request.method == "POST" :
         form = Produit(request.POST, request.FILES)
         print("FILES", request.FILES)
@@ -118,6 +133,7 @@ def  new_product(request):
         )
         context={'categorie':categorie}
         produit.save()
+        return render(request,'produits/produit.html',locals())
 
     return render(request, "produits/nouveau_produit.html",{'categories':categories})
 

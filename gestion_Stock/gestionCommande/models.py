@@ -51,7 +51,7 @@ class Commande(models.Model):
         return  f"{self.nom} {self.prenom} {self.email} {self.telephone} {self.adresse}"
 
 class DetailCommande(models.Model):
-    quantite = models.IntegerField()
+    quantite = models.IntegerField(default=1)
     commande = models.ForeignKey(Commande, on_delete=models.CASCADE)
     produit = models.ForeignKey(Produit, on_delete=models.CASCADE)
 
