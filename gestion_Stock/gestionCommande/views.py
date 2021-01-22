@@ -212,7 +212,7 @@ def detail_clients(request,id):
     client= get_object_or_404(Client,id=id)
     context = {"client":  client}
     print(context)
-    print('voici le nom du client',client.nom)
+    print('voici le nom du client bla bla bla',client.nom)
     return render(request, "clients/client_detail.html",context)
 
 def  delete_client(request,id):
