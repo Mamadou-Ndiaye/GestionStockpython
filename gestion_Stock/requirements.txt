@@ -50,7 +50,6 @@ Scrapy==2.3.0
 service-identity==18.1.0
 six==1.15.0
 soupsieve==2.0.1
-
 toml==0.10.1
 tqdm==4.51.0
 Twisted==20.3.0
