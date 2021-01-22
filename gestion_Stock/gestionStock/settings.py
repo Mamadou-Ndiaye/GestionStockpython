@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'vt!cf(*h*hr0ql=4#)_mxjgy13l&p#dm-83d$+-u$ga5vn2uba'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lambaye-stock.herokuapp.com']
 
 
 # Application definition
@@ -131,6 +131,19 @@ STATICFILES_DIRS = [
   os.path.join(BASE_DIR , 'static')
 ]
 
-
+## Gestion des redirection pour bloquer certains access
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL='login'
+
+MIDDLEWARE = [
+    # ...
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # ...
+]
+
+if os.environ.get('ENV') == 'PRODUCTION':
+    # ...
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
