@@ -28,7 +28,6 @@ joblib==0.17.0
 lazy-object-proxy==1.4.3
 lxml==4.5.2
 mccabe==0.6.1
-nltk==3.5
 parsel==1.6.0
 pipenv==2020.8.13
 Protego==0.1.16
